@@ -3,6 +3,7 @@ import type { Schema } from "../amplify/data/resource";
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { generateClient } from "aws-amplify/data";
 import { uploadData } from 'aws-amplify/storage';
+import React from 'react';
 
 const client = generateClient<Schema>();
 
@@ -41,8 +42,10 @@ function App() {
     <main>
             <h1>{user?.signInDetails?.loginId}'s ScoutSnap</h1>
       <button onClick={createTodo}>+ new</button>
+      <div>
       <input type="file" onChange={handleChange} />
       <button onClick={handleClick}>Upload</button>
+      </div>
       <ul>
         {todos.map((todo) => (
           <li 
