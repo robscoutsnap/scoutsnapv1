@@ -10,8 +10,8 @@ const client = generateClient<Schema>();
 function App() {
     const { user, signOut } = useAuthenticator();
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-  const [file, setFile] = React.useState();
-  const handleChange = (event) => {
+  const [file, setFile] = React.useState<File | undefined>();
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFile(event.target.files?.[0]);
   };
 
